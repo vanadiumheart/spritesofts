@@ -808,7 +808,7 @@ minetest.register_globalstep(function(dtime)
 			end
 			tex = def.textures.prefix..def.textures[tex]
 		end
-		if not tbl.firing or t1-tbl.firing > .1 then
+		if tbl.anim or tbl.animtimer or tbl.zoom or tbl.lasttex or tbl.lastlook or tbl.lastctrl then
 			local light = minetest.get_node_light(plpos) or 0
 			local lightvalcolors = {
 				"000000",
