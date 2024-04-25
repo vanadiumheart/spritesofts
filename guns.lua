@@ -26,35 +26,35 @@ minetest.register_craft({
 
 spritesofts.register_gun("spritesofts:pardini",{
 	description = "Airsoft Pardini Pistol",
-	inventory_image = "pardini_inv.png",
+	inventory_image = "pardini_as_inv.png",
 	zoomfov = 60,
 	scale = 7.5,
-	range = 200,
+	range = 100,
 	fire_sound = "pardini_fire",
 	fire_gain = 10,
 	fire_sound_distant = "distant_local",
 	size = 26,
-	loadtype = "semi",--"auto", "semi", and "manual"
+	loadtype = "manual",--"auto", "semi", and "manual"
 	ammo = "spritesofts:mag_pardini",
 	firetime = .125,
-	offsetrecoil = 60,
-	targetrecoil = 30,
+	offsetrecoil = 30,
+	targetrecoil = 15,
 	damage = .01,
-	maxdev = .12,
-	maxzoomdev = .04,
+	maxdev = .06,
+	maxzoomdev = .02,
 	magazine = true,
 	concealed = true,
-	spread = 4,
+	spread = 2,
 	textures = {
-		prefix = "pardini_",
+		prefix = "pardini_as_",
 		hipidle = "hipidle.png",
 		hipidlenomag = "hipidlenomag.png",
 		hipfire = "hipfire.png",
-		hippostfire = "hipidle.png",
+		hippostfire = "load3.png",
 		aimidle = "aimidle.png",
 		aimidlenomag = "aimidlenomag.png",
 		aimfire = "aimfire.png",
-		aimpostfire = "aimidle.png",
+		aimpostfire = "load3.png",
 		load = {
 			length = 4*.25,
 			sounds = {nil, "thompson_charge"},
@@ -77,7 +77,7 @@ spritesofts.register_gun("spritesofts:pardini",{
 
 minetest.register_tool("spritesofts:mag_pardini", {
 	description = "Pardini Magazine",
-	inventory_image = "rangedweapons_9mm_mag.png",
+	inventory_image = "spritesofts_pistol_mag.png",
 })
 if fancycrafts then
 	minetest.register_craft({

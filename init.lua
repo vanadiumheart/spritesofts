@@ -369,7 +369,7 @@ local function fire(player, def, itemstack)
 				pos = vector.subtract(pointed.intersection_point, vector.divide(dir, 50)),
 				expirationtime = 10,
 				size = 2,
-				texture = "gunslinger_decal.png",
+				texture = "spritesofts_decal.png",
 				vertical = true
 			})
 		end
