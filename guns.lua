@@ -54,29 +54,30 @@ spritesofts.register_gun("spritesofts:pardini",{
 		aimidle = "aimidle.png",
 		aimidlenomag = "aimidlenomag.png",
 		aimfire = "aimfire.png",
-		aimpostfire = "load3.png",
+		aimpostfire = "aimfire.png",
 		load = {
 			length = 4*.25,
 			sounds = {nil, "thompson_charge"},
-			frames = {"load1.png", "load2.png", "load3.png", "load1.png"},
+			frames = {"load1.png", "load2.png", "load3.png", "load4.png"},
+			zoomframes = {"aimfire.png", "aimpostfire.png"},
 		},
 		reload = {
 			length = 4*.33,
 			speed = .75,
 			sounds = {"thompson_load", nil, nil, "thompson_charge"},
-			frames = {"reload2.png", "reload1.png", "load3.png", "load1.png"}
+			frames = {"reload2.png", "reload1.png", "load3.png", "load4.png"}
 		},
 		unload = {
 			length = 5*.33,
 			speed = .75,
 			sounds = {nil, "thompson_charge", nil, "thompson_unload"},
-			frames = {"load1.png", "load2.png", "load3.png", "reload1.png", "reload2.png"},
+			frames = {"load1.png", "load2.png", "reload1.png", "reload2.png"},
 		},
 	},
 })
 
 minetest.register_tool("spritesofts:mag_pardini", {
-	description = "Pardini Magazine",
+	description = "Airsoft Pardini Magazine",
 	inventory_image = "spritesofts_pistol_mag.png",
 })
 if fancycrafts then
