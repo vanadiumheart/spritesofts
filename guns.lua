@@ -23,8 +23,20 @@ minetest.register_craft({
 		{"", casingmat, ""},
 	}
 })
+minetest.register_craftitem("spritesofts:plastic_barrel", {
+	description = "Plastic Airsoft Barrel",
+	inventory_image = "spritesoft_barrel.png"
+})
+minetest.register_craft({
+	output = "spritesofts:plastic_barrel 1",
+	recipe = {
+		{"dye:orange", "basic_materials:plastic_strip", ""},
+		{"basic_materials:plastic_strip", "", "basic_materials:plastic_strip"},
+		{"", "basic_materials:plastic_strip", "dye:orange"},
+	}
+})
 
-spritesofts.register_gun("spritesofts:pardini",{
+spritesofts.register_gun("spritesofts:pardini_as",{
 	description = "Airsoft Pardini Pistol",
 	inventory_image = "pardini_as_inv.png",
 	zoomfov = 60,
@@ -35,11 +47,11 @@ spritesofts.register_gun("spritesofts:pardini",{
 	fire_sound_distant = "distant_local",
 	size = 26,
 	loadtype = "manual",--"auto", "semi", and "manual"
-	ammo = "spritesofts:mag_pardini",
+	ammo = "spritesofts:mag_pardini_as",
 	firetime = .125,
 	offsetrecoil = 30,
 	targetrecoil = 15,
-	damage = .01,
+	damage = 2,
 	maxdev = .06,
 	maxzoomdev = .02,
 	magazine = true,
@@ -76,35 +88,36 @@ spritesofts.register_gun("spritesofts:pardini",{
 	},
 })
 
-minetest.register_tool("spritesofts:mag_pardini", {
+minetest.register_tool("spritesofts:mag_pardini_as", {
 	description = "Airsoft Pardini Magazine",
 	inventory_image = "spritesofts_pistol_mag.png",
 })
 if fancycrafts then
 	minetest.register_craft({
-		output = "spritesofts:airsoft_pardini 1 65534",
+		output = "spritesofts:pardini_as 1 65534",
 		recipe = {
-			{"gun_lathe:gun_barrel_iron", "", ""},
-			{"default:steel_ingot", "gun_lathe:gun_barrel_iron", ""},
-			{"", "default:steel_ingot", "default:steel_ingot"},
-			{"default:steel_ingot", "default:steel_ingot", ""},
+			{"spritesofts:plastic_barrel", "basic_materials:steel_wire", ""},
+			{"basic_materials:plastic_sheet", "spritesofts:plastic_barrel", ""},
+			{"dye:orange", "basic_materials:plastic_sheet", "basic_materials:plastic_sheet"},
+			{"basic_materials:plastic_sheet", "basic_materials:plastic_sheet", ""},
 		}
 	})
 else
 	minetest.register_craft({
-		output = "spritesofts:airsoft_pardini 1 65534",
+		output = "spritesofts:pardini_as 1 65534",
 		recipe = {
-			{"default:steel_ingot", "", ""},
-			{"", "default:steel_ingot", "default:diamond"},
-			{"", "default:steel_ingot", ""},
+			{"basic_materials:plastic_sheet", "", ""},
+			{"", "basic_materials:plastic_sheet", "dye:orange"},
+			{"", "basic_materials:plastic_sheet", ""},
 		}
 	})
 end
-spritesofts.register_magazine("spritesofts:mag_pardini", "spritesofts:bullet_6", 26)
+spritesofts.register_magazine("spritesofts:mag_pardini_as", "spritesofts:bullet_6", 26)
 minetest.register_craft({
-	output = "spritesofts:mag_pardini 1 65534",
+	output = "spritesofts:mag_pardini_as 1 65534",
 	recipe = {
-		{"default:steel_ingot"},
+		{"dye:orange"},
+		{"basic_materials:plastic_sheet"},
 		{magspringmat},
 	}
 })
