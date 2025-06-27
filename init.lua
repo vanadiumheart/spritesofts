@@ -1004,14 +1004,19 @@ minetest.get_craft_result = function(input)
 	local output, decremented_input = oldfunc3(input)
 	if input and input.items then
 		for i, item in pairs(input.items) do
-			local def = minetest.registered_items[item:get_name()]
-			if def and def.groups and def.groups.spritesofts_magazine then
-				return {item = ItemStack(), time = 0, replacements = {}}
+			if item and item.get_name then
+				local def = minetest.registered_items[item:get_name()]
+				if def and def.groups and def.groups.spritesofts_magazine then
+					return {item = ItemStack(), time = 0, replacements = {}}
+				end
+			else
+				minetest.log("warning", "[spritesofts] nil or bad item in input.items at index "..tostring(i))
 			end
 		end
 	end
 	return output, decremented_input
 end
+
 --[[--failed attempt to allow autocrafters and such load magazines, i might come back to it.
 local oldfunc3 = minetest.get_craft_result
 minetest.get_craft_result = function(input)
